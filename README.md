@@ -1,9 +1,9 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
 
-## Project Name
+## 04 - Buffers
 
-### Author: Student/Group Name
+### Author: Heather Cherewaty
 
 ### Links and Resources
 * [repo](http://xyz.com)
