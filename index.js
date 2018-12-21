@@ -1,17 +1,7 @@
-// 'use strict';\n
-// let arr = ['Steve', 'Heather', 'Atlas', 'Lily'];\n
-// let arrLoop = arr.forEach(person => {\n
-//     console.log(person);\n
-// });\n
-
 'use strict';
 const fs = require('fs');
 
 let buffer = Buffer.from([]);
-
-// let bufferOne = new Buffer('\'use strict\';\\n')
-// let bufferTwo = new Buffer('let arr = [\'Steve', 'Heather', 'Atlas', 'Lily\'];\\n')
-// let bufferThree = Buffer.concat([bufferOne, bufferTwo]);
 
 let bufferOne = new Buffer('\'use strict\';\n');
 let bufferTwo = new Buffer('let arr = [\'Steve\', \'Heather\', \'Atlas\', \'Lily\'];\n');
@@ -26,15 +16,34 @@ let finalBuffer = Buffer.concat(arr);
 
 fs.writeFile('./files/loop.js', finalBuffer, (err) => {
     if(err) throw err;
-    console.log('The file has been created.', buffer);
+    // console.log('The file has been created.', buffer);
 });
 
-// fs.readFile('./files/loop.js', (err, data) => {
-//     if (err) throw err;
-//     console.log('From loop.js forEach', data);
-// });
+let articleStart = new Buffer('<article>');
+let articleEnd = new Buffer('</article>');
 
-// fs.writeFile('./files/loop.js', data, (err) => {
-//     if (err) throw err;
-//     console.log('I am supposed to print this data on index.js', data);
-// })
+let hThreeStart = new Buffer('<h3>');
+let hThreeEnd = new Buffer('</h3>');
+
+let slash = 0x5c;
+
+
+fs.readFile('./files/pair-programming.txt', (err, data) => {
+    if (err) throw err;
+    // console.log('I am trying to do a read..', data);
+
+    let articleWrap = Buffer.concat([articleStart, data, articleEnd]);
+
+    // let firstSlice = data.indexOf(slash);
+    // console.log(firstSlice);
+   
+        data.splice(1, 0, 'Meow');
+        console.log(data);
+    
+
+fs.writeFile('./files/pair-programming.html', articleWrap, (err) => {
+    if(err) throw err;
+    // console.log('I did a read, I did a wrap around text.');
+});
+
+});
