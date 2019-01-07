@@ -15,35 +15,35 @@ let arr = [bufferOne, bufferTwo, bufferThree, bufferFour, bufferFive];
 let finalBuffer = Buffer.concat(arr);
 
 fs.writeFile('./files/loop.js', finalBuffer, (err) => {
-    if(err) throw err;
-    // console.log('The file has been created.', buffer);
+  if(err) throw err;
+  // console.log('The file has been created.', buffer);
 });
 
-let articleStart = new Buffer('<article>');
-let articleEnd = new Buffer('</article>');
+// let articleStart = new Buffer('<article>');
+// let articleEnd = new Buffer('</article>');
 
-let hThreeStart = new Buffer('<h3>');
-let hThreeEnd = new Buffer('</h3>');
+// let hThreeStart = new Buffer('<h3>');
+// let hThreeEnd = new Buffer('</h3>');
 
-let slash = 0x5c;
+// let slash = 0x5c;
 
 
 fs.readFile('./files/pair-programming.txt', (err, data) => {
-    if (err) throw err;
-    // console.log('I am trying to do a read..', data);
+  if (err) throw err;
+  // console.log('I am trying to do a read..', data);
 
-    let articleWrap = Buffer.concat([articleStart, data, articleEnd]);
+  //   let articleWrap = Buffer.concat([articleStart, data, articleEnd]);
 
-    // let firstSlice = data.indexOf(slash);
-    // console.log(firstSlice);
+  // let firstSlice = data.indexOf(slash);
+  // console.log(firstSlice);
    
-        data.splice(1, 0, 'Meow');
-        console.log(data);
+  //   data.splice(1, 0, 'Meow');
+  //   console.log(data);
     
 
-fs.writeFile('./files/pair-programming.html', articleWrap, (err) => {
-    if(err) throw err;
-    // console.log('I did a read, I did a wrap around text.');
-});
+  //   fs.writeFile('./files/pair-programming.html', articleWrap, (err) => {
+  //     if(err) throw err;
+  //     // console.log('I did a read, I did a wrap around text.');
+  //   });
 
 });
